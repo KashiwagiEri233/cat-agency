@@ -2,6 +2,8 @@ import { defineConfig } from 'vite';
 import { fileURLToPath } from 'node:url';
 
 export default defineConfig({
+  // GitHub Pages 项目站点需要仓库名前缀；本地开发仍使用根路径
+  base: process.env.GITHUB_ACTIONS ? '/cat-agency/' : '/',
   server: {
     host: '127.0.0.1',
     port: 5173,
