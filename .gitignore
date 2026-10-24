@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+
+# 参考工程（独立 clone，不纳入本项目仓库）
+ref/
+
+# 个人计划文档，不提交到远程
+plan.md

@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>猫咪事务所 · Cat Agency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <canvas id="scene" tabindex="0"></canvas>
+
+      <div id="ui">
+        <div class="hud-top">
+          <div class="brand">
+            <div class="brand-mark">
+              <span class="brand-en">CAT AGENCY</span>
+              <span class="brand-cn">猫咪事务所</span>
+            </div>
+            <div class="brand-meta">
+              <span id="hud-date">-月-日 周-</span>
+              <span class="meta-sep">·</span>
+              <span id="hud-time">16:40</span>
+              <span id="hud-weather" class="weather" title="天气">晴</span>
+            </div>
+          </div>
+
+          <div class="hud-actions">
+            <div class="coin-box" title="猫爪币">
+              <span class="coin-icon"></span>
+              <span id="hud-coins">0</span>
+            </div>
+            <button id="btn-settings" class="pixel-btn icon-btn" title="设置 (ESC)">⚙</button>
+          </div>
+        </div>
+
+        <aside id="quest-panel" class="pixel-frame">
+          <button id="quest-toggle" class="quest-head">
+            <span class="quest-caret">▾</span>
+            <span class="quest-title">任务日志</span>
+            <span id="quest-progress" class="quest-progress">0/5</span>
+          </button>
+          <div class="quest-body">
+            <div id="quest-name" class="quest-name">《消失的金枪鱼罐头》</div>
+            <ul id="quest-list" class="quest-list"></ul>
+            <div id="quest-teaser" class="quest-teaser" hidden></div>
+          </div>
+        </aside>
+
+        <div id="hint-bar">
+          <div id="interact-prompt" class="interact-prompt" hidden>
+            <span class="keycap">E</span>
+            <span id="interact-label">调查</span>
+          </div>
+          <div id="controls-hint" class="controls-hint">
+            <span class="keycap sm">点击地面</span> 移动
+            <span class="keycap sm">E</span> 调查
+            <span class="keycap sm">滚轮</span> 缩放
+          </div>
+        </div>
+
+        <div id="inventory" class="inventory">
+          <div class="inventory-title">物品</div>
+          <div class="inventory-slots" id="inventory-slots"></div>
+        </div>
+
+        <div id="dialogue" class="dialogue pixel-frame" hidden>
+          <div class="dialogue-portrait">
+            <div id="dialogue-portrait-img" class="portrait-img"></div>
+          </div>
+          <div class="dialogue-main">
+            <div id="dialogue-name" class="dialogue-name">阿橘</div>
+            <p id="dialogue-text" class="dialogue-text"></p>
+            <div id="dialogue-next" class="dialogue-next">点击继续 ▼</div>
+          </div>
+        </div>
+
+        <div id="toast-layer" class="toast-layer"></div>
+
+        <div id="settings" class="modal" hidden>
+          <div class="modal-card pixel-frame">
+            <div class="modal-title">设置</div>
+            <div class="setting-row">
+              <span>暖色 Bloom</span>
+              <button class="toggle" data-toggle="bloom">开启</button>
+            </div>
+            <div class="setting-row">
+              <span>景深（移轴）</span>
+              <button class="toggle" data-toggle="dof">开启</button>
+            </div>
+            <div class="setting-row">
+              <span>镜头跟随阿橘</span>
+              <button class="toggle" data-toggle="follow">开启</button>
+            </div>
+            <div class="setting-row">
+              <span>音效</span>
+              <button class="toggle" data-toggle="sound">开启</button>
+            </div>
+            <div class="setting-row">
+              <span>像素锐度</span>
+              <button class="toggle" data-toggle="quality">标准</button>
+            </div>
+            <div class="modal-actions">
+              <button id="btn-reset-quest" class="pixel-btn danger">重置任务</button>
+              <button id="btn-close-settings" class="pixel-btn">返回事务所</button>
+            </div>
+            <div class="modal-tip">按 ESC 快速开关此面板</div>
+          </div>
+        </div>
+
+        <div id="loading" class="loading">
+          <div class="loading-inner">
+            <div class="loading-logo">CAT AGENCY</div>
+            <div class="loading-text">正在布置事务所……</div>
+            <div class="loading-bar"><span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
